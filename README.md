@@ -29,7 +29,7 @@ cnot	q0,q1
 ```python
 @circuit("Teleportation")
 def teleportation_circuit():
-  HadamardGate.apply(q[1]UP)
+  HadamardGate.apply(q[1])
   cx(q[1], q[2])
   cx(q[0], q[1])
   HadamardGate.apply(q[0])
