@@ -37,7 +37,7 @@ def teleportation_circuit():
   q[1].collapse()
   
   cx(q[1], q[2])
-  cx(q[0], q[2])
+  cz(q[0], q[2])
   
   return q
 ```

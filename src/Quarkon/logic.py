@@ -53,4 +53,7 @@ class ControlGate:
 def cnot(control: Qubit, qubit: Qubit):
     ControlGate.apply(control, qubit, PauliXGate)
 
+def cz(control: Qubit, qubit: Qubit):
+    ControlGate.apply(control, qubit, PauliZGate)
+
 cx = cnot
