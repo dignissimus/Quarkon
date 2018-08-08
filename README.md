@@ -3,7 +3,7 @@ Quantum circuit simulation in python
 
 ## Creating a circuit
 To create a circuit, you may use the the `@circuit` decorator found in `Quarkon.utils`, you may optionally give your circuit a name by supplying a string as a parameter to the decorator.
-Logic gates are found in `Quarkon.logic` and the Qubit is found in `Quarkon.qubit` and you may apply them on a qubit by using `LogicGat.apply(qubit)` where `LogicGate` is your desired logic gate. Yout circuit function may optionally take its input qubits as separate parameters or take them all in one list.
+Logic gates are found in `Quarkon.logic` and the Qubit is found in `Quarkon.qubit` and you may apply them on a qubit by using `LogicGat.apply(qubit)` where `LogicGate` is your desired logic gate. Yout circuit function may optionally take its input qubits as separate parameters or take them all in one tuple.
 ## Examples
 ### Creating an EPR pair
 ```python

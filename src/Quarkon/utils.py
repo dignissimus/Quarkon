@@ -29,6 +29,7 @@ def circuit(original_name=None):
                 testcases = []
                 for newbit in newbits:
                     testcases.append(newbit.copy())
+                testcases = tuple(testcases)
 
                 try:
                     result = func(*testcases)
