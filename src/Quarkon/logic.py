@@ -55,5 +55,5 @@ def cnot(control: Qubit, qubit: Qubit):
 
 def cz(control: Qubit, qubit: Qubit):
     ControlGate.apply(control, qubit, PauliZGate)
-
+h = HadamardGate.apply
 cx = cnot

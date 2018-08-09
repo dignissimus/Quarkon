@@ -10,7 +10,7 @@ Logic gates are found in `Quarkon.logic` and the Qubit is found in `Quarkon.qubi
 from Quarkon.logic import * 
 @circuit("EPR Pair")
 def epr_pair(q):
-  HadamardGate.apply(q[0])
+  h(q[0]) # = HadamardGate.apply(q[0])
   cx(q[0], q[1]) # = ControlGate.apply(q[0], q[1], PauliXGate)
   return q
 
@@ -29,10 +29,10 @@ cnot	q0,q1
 ```python
 @circuit("Teleportation")
 def teleportation_circuit():
-  HadamardGate.apply(q[1])
+  h(q[1])
   cx(q[1], q[2])
   cx(q[0], q[1])
-  HadamardGate.apply(q[0])
+  h(q[0])
   q[0].collapse() # In this scenario .measure is fine as well
   q[1].collapse()
   
