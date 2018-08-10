@@ -46,7 +46,6 @@ qreg qreg2[5];
 ## Examples
 ### Creating an EPR pair
 ```python
-from Quarkon.logic import * 
 @circuit("EPR Pair")
 def epr_pair(q):
   h(q[0]) # = HadamardGate.apply(q[0])
@@ -66,11 +65,12 @@ cnot	q[0], q[1];
 ### Teleportation circuit
 ```python
 @circuit("Teleportation")
-def teleportation_circuit():
+def teleportation_circuit(q):
   h(q[1])
   cx(q[1], q[2])
   cx(q[0], q[1])
   h(q[0])
+
   q[0].collapse() # In this scenario .measure is fine too
   q[1].collapse()
   
