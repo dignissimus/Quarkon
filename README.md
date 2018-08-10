@@ -31,9 +31,9 @@ measure qreg2 -> output; // equivalent to measure qreg2[0] output[0] qreg2[1] ou
 To define a gate you write `gate` followed by the name of the gate then the arguments of that gate, a gate that takes two qubits and 'entangles' them for a certain configuration might look something similar to
 ```asm
 gate entangle a, b {
-	h a;
-	cx a b;
-	x b;
+    h a;
+    cx a b;
+    x b;
 }
 
 qreg qreg1[5];
