@@ -71,7 +71,7 @@ def teleportation_circuit():
   cx(q[1], q[2])
   cx(q[0], q[1])
   h(q[0])
-  q[0].collapse() # In this scenario .measure is fine as well
+  q[0].collapse() # In this scenario .measure is fine too
   q[1].collapse()
   
   cx(q[1], q[2])
