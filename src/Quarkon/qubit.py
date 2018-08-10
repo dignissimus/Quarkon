@@ -4,7 +4,30 @@ import random
 from Quarkon.entanglement import Entanglement
 
 
-class Qubit:
+class Bit:
+    pass
+
+
+class ClassicalBit(Bit):
+    def __init__(self, value):
+        self.value = value
+
+    def __str__(self):
+        return str(self.value)
+
+    def __repr__(self):
+        return self.__str__()
+
+    @classmethod
+    def ZERO(cls):
+        return cls(0)
+
+    @classmethod
+    def ONE(cls):
+        return cls(1)
+
+
+class Qubit(Bit):
     @classmethod
     def ZERO(cls):
         return cls(1, 0)
@@ -98,9 +121,11 @@ class Qubit:
 
         return self
 
-
     def collapse(self):
         return int(self.measure().spin_y)
+
+    def classical(self):
+        return ClassicalBit(self.collapse())
 
     def copy(self):
         if self.spin_x in [0, 1] and self.spin_y in [0, 1]:
@@ -120,5 +145,8 @@ class Qubit:
     def __hash__(self):
         return self.collapse()
 
-    def __repr__(self):
+    def __str__(self):
         return str(self.collapse())
+
+    def __repr__(self):
+        return self.__str__()

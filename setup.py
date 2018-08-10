@@ -2,7 +2,7 @@
 
 see: https://github.com/dignissimus/Quarkon
 """
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name="Quarkon",
@@ -13,5 +13,11 @@ setup(
     url="https://github.com/dignissimus/Quarkon",
     author="Sam Ezeh",
     author_email="sam@ezeh.me",
-    package_dir={"": "src/Quarkon"},
+    entry_points={
+        "console_scripts": [
+            "qasm = qasm.__main__:main"
+        ]
+    },
+    packages=find_packages("src"),
+    package_dir={"": "src"},
 )

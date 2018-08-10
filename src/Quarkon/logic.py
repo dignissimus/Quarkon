@@ -33,7 +33,7 @@ class QuantumNotGate(Gate):  # Pauli-X
 PauliXGate = QuantumNotGate
 
 
-class PauliZGate(Gate): # TODO: correct?
+class PauliZGate(Gate):  # TODO: correct?
     @staticmethod
     def apply(qubit: Qubit):
         new_spin_y = -qubit.spin_y
@@ -53,7 +53,34 @@ class ControlGate:
 def cnot(control: Qubit, qubit: Qubit):
     ControlGate.apply(control, qubit, PauliXGate)
 
+
+def ccnot(control: Qubit, control2: Qubit, qubit: Qubit):
+    # def ccnot a, b, c {
+    #  {
+    #    d = not b
+    #    cnot a, d
+    #  }
+    #   cnot d, c
+    # }
+
+    d = Qubit.ONE()
+    # We need it so that qubit d is the opposite of b (control2), the cnot gate works for this
+    cnot(control2, d)
+
+    cnot(control, d)
+    cnot(d, qubit)
+
+
 def cz(control: Qubit, qubit: Qubit):
     ControlGate.apply(control, qubit, PauliZGate)
+
+
+def ch(control: Qubit, qubit: Qubit):
+    ControlGate.apply(control, qubit, HadamardGate)
+
+
 h = HadamardGate.apply
 cx = cnot
+ccx = ccnot
+x = PauliXGate.apply
+z = PauliZGate.apply
